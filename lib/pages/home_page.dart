@@ -4,6 +4,7 @@ import 'package:scanqr/pages/direcciones_page.dart';
 import 'package:scanqr/pages/mapas_page.dart';
 import 'package:scanqr/pages/widgets/custom_navigatorBar.dart';
 import 'package:scanqr/pages/widgets/scan_button.dart';
+import 'package:scanqr/providers/db_provider.dart';
 import 'package:scanqr/providers/ui_provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,7 +38,10 @@ class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final uiProvider = Provider.of<UiProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
-    print(currentIndex);
+
+// TODO Provisional lectura DB
+    DBProvider.db.database;
+
     switch (currentIndex) {
       case 0:
         return const MapasPage();
