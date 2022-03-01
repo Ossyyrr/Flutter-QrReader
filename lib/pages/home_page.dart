@@ -4,7 +4,6 @@ import 'package:scanqr/pages/direcciones_page.dart';
 import 'package:scanqr/pages/mapas_page.dart';
 import 'package:scanqr/pages/widgets/custom_navigatorBar.dart';
 import 'package:scanqr/pages/widgets/scan_button.dart';
-import 'package:scanqr/providers/db_provider.dart';
 import 'package:scanqr/providers/ui_provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,9 +38,13 @@ class _HomePageBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
 
-// TODO Provisional lectura DB
-    DBProvider.db.database;
-
+    // PRUEBAS ---------------
+    //final tempScan = ScannModel(valor: 'http://google.com');
+    //DBProvider.db.nuevoScan(tempScan);
+    //DBProvider.db.getScanById(16);
+    //DBProvider.db.getTodosLosScans().then((value) => print(value));
+    //DBProvider.db.deleteAllScans();
+    // --------------------
     switch (currentIndex) {
       case 0:
         return const MapasPage();
