@@ -18,7 +18,9 @@ class HomePage extends StatelessWidget {
         title: const Text('Historial'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Provider.of<ScanListProvider>(context, listen: false).borrarTodos();
+            },
             icon: const Icon(Icons.delete_forever),
           ),
         ],
