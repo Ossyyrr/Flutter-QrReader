@@ -24,7 +24,7 @@ class ScanListProvider extends ChangeNotifier {
 
   cargarScansPorTipo(String tipo) async {
     final scans = await DBProvider.db.getScansPorTipo(tipo);
-    this.scans = [...scans!];
+    this.scans = [...scans];
     tipoSeleccionado = tipo;
     notifyListeners();
   }

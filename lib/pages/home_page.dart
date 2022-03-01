@@ -4,6 +4,7 @@ import 'package:scanqr/pages/direcciones_page.dart';
 import 'package:scanqr/pages/mapas_page.dart';
 import 'package:scanqr/pages/widgets/custom_navigatorBar.dart';
 import 'package:scanqr/pages/widgets/scan_button.dart';
+import 'package:scanqr/providers/scan_list_provider.dart';
 import 'package:scanqr/providers/ui_provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,11 +46,16 @@ class _HomePageBody extends StatelessWidget {
     //DBProvider.db.getTodosLosScans().then((value) => print(value));
     //DBProvider.db.deleteAllScans();
     // --------------------
+
+    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
+        scanListProvider.cargarScansPorTipo('geo');
         return const MapasPage();
       case 1:
       default:
+        scanListProvider.cargarScansPorTipo('http');
         return const DireccioensPage();
     }
   }
