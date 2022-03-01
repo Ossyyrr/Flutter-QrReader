@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scanqr/providers/scan_list_provider.dart';
+import 'package:scanqr/utils/utils.dart';
 
 class ScanTiles extends StatelessWidget {
   const ScanTiles({Key? key, required this.tipo}) : super(key: key);
@@ -31,6 +32,7 @@ class ScanTiles extends StatelessWidget {
           ),
           onTap: () {
             print(scans[i].id.toString());
+            launchURL(context, scans[i]);
           },
         ),
       ),
