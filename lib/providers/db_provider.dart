@@ -28,15 +28,20 @@ class DBProvider {
     log(path);
 
     // Crear DB
-    return await openDatabase(path, version: 1, onOpen: (db) {}, onCreate: (Database db, int version) async {
-      await db.execute('''
+    return await openDatabase(
+      path,
+      version: 1,
+      onOpen: (db) {},
+      onCreate: (Database db, int version) async {
+        await db.execute('''
         CREATE TABLE Scans(
           id INTEGER PRIMARY KEY,
           tipo TEXT,
           valor TEXT
         )
       ''');
-    });
+      },
+    );
   }
 
   Future<int> nuevoScanRaw(ScannModel nuevoScan) async {
